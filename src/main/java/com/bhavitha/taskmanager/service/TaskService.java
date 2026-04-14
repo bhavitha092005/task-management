@@ -40,8 +40,9 @@ public class TaskService {
 
         return task;
     }
-
+    
     public Task updateTask(String id, TaskRequest request, Long userId) {
+
         Task task = taskRepo.findById(id)
                 .orElseThrow(() -> new CustomException("Task not found"));
 
@@ -49,14 +50,24 @@ public class TaskService {
             throw new CustomException("Forbidden");
         }
 
-        task.setTitle(request.getTitle());
-        task.setDescription(request.getDescription());
-        task.setStatus(request.getStatus());
-        task.setDueDate(request.getDueDate());
+        if (request.getTitle() != null) {
+            task.setTitle(request.getTitle());
+        }
+
+        if (request.getDescription() != null) {
+            task.setDescription(request.getDescription());
+        }
+
+        if (request.getStatus() != null) {
+            task.setStatus(request.getStatus());
+        }
+
+        if (request.getDueDate() != null) {
+            task.setDueDate(request.getDueDate());
+        }
 
         return taskRepo.save(task);
-    }
-
+    } 
     public void deleteTask(String id, Long userId) {
         Task task = taskRepo.findById(id)
                 .orElseThrow(() -> new CustomException("Task not found"));

@@ -28,7 +28,7 @@ public class JwtFilter extends OncePerRequestFilter {
 
         String path = request.getRequestURI();
 
-        // Skip auth endpoints
+       
         if (path.startsWith("/auth")) {
             filterChain.doFilter(request, response);
             return;
@@ -42,10 +42,10 @@ public class JwtFilter extends OncePerRequestFilter {
             if (jwtUtil.validateToken(token)) {
                 Long userId = jwtUtil.extractUserId(token);
 
-                // ✅ Set userId for your controller
+                
                 request.setAttribute("userId", userId);
 
-                // ✅ THIS IS THE MISSING PART
+               
                 UsernamePasswordAuthenticationToken authentication =
                         new UsernamePasswordAuthenticationToken(
                                 userId, null, Collections.emptyList());
