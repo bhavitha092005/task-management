@@ -2,20 +2,23 @@
 
 ## 📌 Overview
 
-This is a secure RESTful backend application for managing tasks. It allows users to register, authenticate, and perform CRUD operations on their tasks.
+This project is a secure RESTful backend application for managing tasks. It allows users to register, authenticate, and perform CRUD operations on their tasks.
 
-The application ensures that users can only access and manage their own tasks using JWT-based authentication and strict authorization checks.
+The system ensures that each user can only access and manage their own tasks using JWT-based authentication and strict authorization.
 
 ---
 
 ## 🚀 Features
 
 * User Registration and Login (JWT Authentication)
-* Secure Password Hashing using BCrypt
-* Task CRUD Operations (Create, Read, Update, Delete)
-* User-specific task isolation (Authorization)
-* Integration with PostgreSQL (Users) and MongoDB (Tasks)
-* Global Exception Handling with clean error responses
+* Password hashing using BCrypt
+* Secure JWT-based authentication
+* User Profile endpoint
+* Task CRUD operations (Create, Read, Update, Delete)
+* User-level task isolation (authorization)
+* Integration with PostgreSQL and MongoDB
+* Global exception handling with proper HTTP status codes
+* Server-side validation using annotations
 
 ---
 
@@ -23,7 +26,7 @@ The application ensures that users can only access and manage their own tasks us
 
 * Backend: Spring Boot
 * Security: Spring Security, JWT
-* Database:
+* Databases:
 
   * PostgreSQL (User data)
   * MongoDB (Task data)
@@ -37,8 +40,10 @@ The application ensures that users can only access and manage their own tasks us
 
 ```
 git clone <your-repo-link>
-cd taskmanager
+cd task-management-api
 ```
+
+---
 
 ### 2. Configure application.properties
 
@@ -56,27 +61,27 @@ spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
 
 # JWT
-jwt.secret=mysecretkey
+jwt.secret=mysecretkeymysecretkeymysecretkey
 ```
 
 ---
 
 ### 3. Start Databases
 
-* Start PostgreSQL
-* Start MongoDB
+* Start PostgreSQL server
+* Start MongoDB server
 
 ---
 
 ### 4. Run Application
 
-Run the Spring Boot application from your IDE (STS)
+Run the Spring Boot application using STS or any IDE.
 
 ---
 
 ## 🔐 Authentication
 
-All protected endpoints require JWT token:
+All protected endpoints require JWT token in the header:
 
 ```
 Authorization: Bearer <your_token>
@@ -86,20 +91,26 @@ Authorization: Bearer <your_token>
 
 ## 📡 API Endpoints
 
-### Auth APIs
+### 🔑 Auth APIs
 
-* POST `/auth/register`
-* POST `/auth/login`
+* **POST** `/auth/register` → Register a new user
+* **POST** `/auth/login` → Login and receive JWT
 
 ---
 
-### Task APIs (Protected)
+### 👤 User API
 
-* POST `/tasks` → Create Task
-* GET `/tasks` → Get All Tasks
-* GET `/tasks/{id}` → Get Task by ID
-* PUT `/tasks/{id}` → Update Task
-* DELETE `/tasks/{id}` → Delete Task
+* **GET** `/user/profile` → Get authenticated user details
+
+---
+
+### 📋 Task APIs (Protected)
+
+* **POST** `/tasks` → Create a task
+* **GET** `/tasks` → Get all tasks for logged-in user
+* **GET** `/tasks/{id}` → Get a specific task
+* **PUT** `/tasks/{id}` → Update a task (partial update supported)
+* **DELETE** `/tasks/{id}` → Delete a task
 
 ---
 
@@ -108,7 +119,7 @@ Authorization: Bearer <your_token>
 * JWT-based authentication
 * Stateless session management
 * User-level authorization enforced
-* Users cannot access tasks belonging to others
+* Users cannot access or modify tasks of other users
 
 ---
 
@@ -117,33 +128,60 @@ Authorization: Bearer <your_token>
 * PostgreSQL is used for structured user data with strong consistency
 * MongoDB is used for flexible task storage
 * JWT enables stateless authentication
-* Layered architecture improves maintainability and separation of concerns
+* Layered architecture (Controller → Service → Repository) improves maintainability
+* User-task relationship handled using `userId`
 
 ---
 
 ## ⚠️ Error Handling
 
-* Global exception handling implemented
-* Clean JSON error responses
-* Proper HTTP status codes (400, 401, 403, 404)
+* Global exception handler implemented
+* Returns clean JSON error responses
+* Proper HTTP status codes:
+
+  * 400 Bad Request
+  * 401 Unauthorized
+  * 403 Forbidden
+  * 404 Not Found
+
+---
+
+## ✅ Validation
+
+* Email validation using `@Email`
+* Required fields using `@NotBlank`
+* Basic validation for task inputs
+
+---
+
+## 📁 API Documentation
+
+A Postman collection is included in the repository:
+
+```
+task-api.postman_collection.json
+```
+
+It contains all endpoints with sample request bodies.
 
 ---
 
 ## 🎥 Demo
 
-Include a short demo video showing:
+The demo video demonstrates:
 
 * User registration and login
 * Creating and managing tasks
-* Authorization check (user cannot access another user’s task)
+* Access control (user cannot access another user's task)
+* Error handling and validation
 
 ---
 
 ## 📌 Future Improvements
 
 * Role-based access control (RBAC)
-* Refresh tokens
-* Pagination and filtering
-* API documentation using Swagger
+* Refresh tokens for authentication
+* Pagination and filtering for tasks
+* Swagger/OpenAPI documentation
 
 ---
