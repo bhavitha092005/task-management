@@ -40,7 +40,7 @@ The system ensures that each user can only access and manage their own tasks usi
 
 ```
 git clone https://github.com/bhavitha092005/task-management.git
-cd taskmanagement
+cd task-management
 ```
 
 ---
