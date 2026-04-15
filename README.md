@@ -51,7 +51,7 @@ cd taskmanagement
 # PostgreSQL
 spring.datasource.url=jdbc:postgresql://localhost:5432/taskdb
 spring.datasource.username=postgres
-spring.datasource.password=bhavitha1234@
+spring.datasource.password=yourpassword
 
 # MongoDB
 spring.data.mongodb.uri=mongodb://localhost:27017/taskdb
