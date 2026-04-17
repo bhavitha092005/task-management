@@ -3,7 +3,8 @@ package com.bhavitha.taskmanager.entity;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.List;
 
 @Document(collection = "tasks")
 public class Task {
@@ -14,9 +15,14 @@ public class Task {
     private String title;
     private String description;
     private String status;
-    private LocalDate dueDate;
 
-    private Long userId; // IMPORTANT
+    private LocalDateTime dueDate;
+
+    private Long userId;
+
+   
+    private String category;         
+    private List<String> tags;      
 
     public Task() {}
 
@@ -52,11 +58,11 @@ public class Task {
         this.status = status;
     }
 
-    public LocalDate getDueDate() {
+    public LocalDateTime getDueDate() {
         return dueDate;
     }
 
-    public void setDueDate(LocalDate dueDate) {
+    public void setDueDate(LocalDateTime dueDate) {
         this.dueDate = dueDate;
     }
 
@@ -66,5 +72,21 @@ public class Task {
 
     public void setUserId(Long userId) {
         this.userId = userId;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public List<String> getTags() {
+        return tags;
+    }
+
+    public void setTags(List<String> tags) {
+        this.tags = tags;
     }
 }

@@ -1,26 +1,18 @@
 package com.bhavitha.taskmanager.dto;
 
-import jakarta.validation.constraints.NotBlank;
-
 import java.time.LocalDateTime;
 import java.util.List;
 
-public class TaskRequest {
+public class UpdateTaskRequest {
 
-    @NotBlank
     private String title;
-
     private String description;
-
     private String status;
-
     private LocalDateTime dueDate;
-
     private String category;
-
     private List<String> tags;
 
-    public TaskRequest() {}
+    public UpdateTaskRequest() {}
 
     public String getTitle() {
         return title;

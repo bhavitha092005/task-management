@@ -8,4 +8,14 @@ import java.util.List;
 public interface TaskRepository extends MongoRepository<Task, String> {
 
     List<Task> findByUserId(Long userId);
+
+    List<Task> findByUserIdAndCategory(Long userId, String category);
+
+    List<Task> findByUserIdAndTagsContaining(Long userId, String tag);
+
+    List<Task> findByUserIdAndCategoryAndTagsContaining(
+            Long userId,
+            String category,
+            String tag
+    );
 }

@@ -1,6 +1,7 @@
 package com.bhavitha.taskmanager.controller;
 
 import com.bhavitha.taskmanager.dto.TaskRequest;
+import com.bhavitha.taskmanager.dto.UpdateTaskRequest;
 import com.bhavitha.taskmanager.entity.Task;
 import com.bhavitha.taskmanager.service.TaskService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -33,27 +34,46 @@ public class TaskController {
 
     @GetMapping("/{id}")
     public Task getTask(@PathVariable String id,
-                        HttpServletRequest httpRequest) {
+                        HttpServletRequest request) {
 
-        Long userId = (Long) httpRequest.getAttribute("userId");
+        Long userId = (Long) request.getAttribute("userId");
         return taskService.getTaskById(id, userId);
     }
 
     @PutMapping("/{id}")
     public Task updateTask(@PathVariable String id,
-                           @Valid @RequestBody TaskRequest request,
-                           HttpServletRequest httpRequest) {
+                           @RequestBody UpdateTaskRequest request,
+                           HttpServletRequest requestObj) {
 
-        Long userId = (Long) httpRequest.getAttribute("userId");
+        Long userId = (Long) requestObj.getAttribute("userId");
         return taskService.updateTask(id, request, userId);
     }
 
     @DeleteMapping("/{id}")
     public String deleteTask(@PathVariable String id,
-                             HttpServletRequest httpRequest) {
+                             HttpServletRequest request) {
 
-        Long userId = (Long) httpRequest.getAttribute("userId");
+        Long userId = (Long) request.getAttribute("userId");
         taskService.deleteTask(id, userId);
         return "Task deleted";
+    }
+    
+    @GetMapping("/filter")
+    public List<Task> filterTasks(
+            @RequestParam(required = false) String category,
+            @RequestParam(required = false) String tag,
+            HttpServletRequest request) {
+
+        Long userId = (Long) request.getAttribute("userId");
+
+        return taskService.filterTasks(userId, category, tag);
+    }
+    
+    @GetMapping("/tags")
+    public Object getTags(HttpServletRequest request) {
+
+        Long userId = (Long) request.getAttribute("userId");
+
+        return taskService.getAllTags(userId);
     }
 }
