@@ -1,0 +1,559 @@
+{
+  "info": {
+    "_postman_id": "c66c50c1-d0bf-46b8-9967-c7b64645bd22",
+    "name": "Task Management API - Assignments 2 & 3",
+    "description": "### Welcome to Postman! This is your first collection. \n\nCollections are your starting point for building and testing APIs. You can use this one to:\n\n• Group related requests\n• Test your API in real-world scenarios\n• Document and share your requests\n\nUpdate the name and overview whenever you’re ready to make it yours.\n\n[Learn more about Postman Collections.](https://learning.postman.com/docs/collections/collections-overview/)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "51396768",
+    "_collection_link": "https://go.postman.co/collection/51396768-c66c50c1-d0bf-46b8-9967-c7b64645bd22?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Register",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"email\": \"luffy@gmail.com\",\r\n  \"password\": \"Luffy@123\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/auth/register",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "auth",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Login",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"email\": \"luffy@gmail.com\",\r\n  \"password\": \"Luffy@123\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/auth/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Profile",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4IiwiaWF0IjoxNzc2NDQ5OTQ0LCJleHAiOjE3NzY1MzYzNDR9.eU9PLRvClW2KUgKFpIXFstJlX3Urgl5GOBU_hk4RpF4",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"email\": \"luffy@gmail.com\",\r\n  \"password\": \"Luffy@123\"\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/user/profile",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "user",
+            "profile"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Task",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4IiwiaWF0IjoxNzc2NDUwMTcyLCJleHAiOjE3NzY1MzY1NzJ9.Q4bDJyGfB-XAMbOcgS90CnZEznlO96Lin8Ii0FoTJm8",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"title\": \"Finish Assignment\",\r\n  \"description\": \"Demo Task\",\r\n  \"status\": \"pending\",\r\n  \"dueDate\": \"2026-04-18T23:00:00\",\r\n  \"category\": \"Work\",\r\n  \"tags\": [\"urgent\",\"backend\"]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/tasks",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "tasks"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get All Task",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4IiwiaWF0IjoxNzc2NDUwMTcyLCJleHAiOjE3NzY1MzY1NzJ9.Q4bDJyGfB-XAMbOcgS90CnZEznlO96Lin8Ii0FoTJm8",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"title\": \"Finish Assignment\",\r\n  \"description\": \"Demo Task\",\r\n  \"status\": \"pending\",\r\n  \"dueDate\": \"2026-04-18T23:00:00\",\r\n  \"category\": \"Work\",\r\n  \"tags\": [\"urgent\",\"backend\"]\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/tasks",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "tasks"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Task By ID",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4IiwiaWF0IjoxNzc2NDUwMTcyLCJleHAiOjE3NzY1MzY1NzJ9.Q4bDJyGfB-XAMbOcgS90CnZEznlO96Lin8Ii0FoTJm8",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/tasks/69e26efefc9d71bac2b4b893",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "tasks",
+            "69e26efefc9d71bac2b4b893"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Task",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4IiwiaWF0IjoxNzc2NDUwMTcyLCJleHAiOjE3NzY1MzY1NzJ9.Q4bDJyGfB-XAMbOcgS90CnZEznlO96Lin8Ii0FoTJm8",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"status\":\"completed\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/tasks/69e26efefc9d71bac2b4b893",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "tasks",
+            "69e26efefc9d71bac2b4b893"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Task",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4IiwiaWF0IjoxNzc2NDUwMTcyLCJleHAiOjE3NzY1MzY1NzJ9.Q4bDJyGfB-XAMbOcgS90CnZEznlO96Lin8Ii0FoTJm8",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:8080/tasks/69e26efefc9d71bac2b4b893",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "tasks",
+            "69e26efefc9d71bac2b4b893"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Filter By Category",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4IiwiaWF0IjoxNzc2NDgxMDg3LCJleHAiOjE3NzY1Njc0ODd9.Hz3dUUQ1Gh6GEbpYkhcCTz_bqKkMzNtzbXpKzAM002I",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/tasks/filter?category=Work",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "tasks",
+            "filter"
+          ],
+          "query": [
+            {
+              "key": "category",
+              "value": "Work"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Filter By Tag",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4IiwiaWF0IjoxNzc2NDgxMDg3LCJleHAiOjE3NzY1Njc0ODd9.Hz3dUUQ1Gh6GEbpYkhcCTz_bqKkMzNtzbXpKzAM002I",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/tasks/filter?tag=urgent",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "tasks",
+            "filter"
+          ],
+          "query": [
+            {
+              "key": "tag",
+              "value": "urgent"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Filter By Category & Tag",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4IiwiaWF0IjoxNzc2NDgxMDg3LCJleHAiOjE3NzY1Njc0ODd9.Hz3dUUQ1Gh6GEbpYkhcCTz_bqKkMzNtzbXpKzAM002I",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/tasks/filter?category=Work&tag=urgent",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "tasks",
+            "filter"
+          ],
+          "query": [
+            {
+              "key": "category",
+              "value": "Work"
+            },
+            {
+              "key": "tag",
+              "value": "urgent"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get All Tags",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4IiwiaWF0IjoxNzc2NDgxMDg3LCJleHAiOjE3NzY1Njc0ODd9.Hz3dUUQ1Gh6GEbpYkhcCTz_bqKkMzNtzbXpKzAM002I",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/tasks/tags",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "tasks",
+            "tags"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Category",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4IiwiaWF0IjoxNzc2NDgxMDg3LCJleHAiOjE3NzY1Njc0ODd9.Hz3dUUQ1Gh6GEbpYkhcCTz_bqKkMzNtzbXpKzAM002I",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/categories?name=Work",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "categories"
+          ],
+          "query": [
+            {
+              "key": "name",
+              "value": "Work"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get All Categories",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4IiwiaWF0IjoxNzc2NDgxMDg3LCJleHAiOjE3NzY1Njc0ODd9.Hz3dUUQ1Gh6GEbpYkhcCTz_bqKkMzNtzbXpKzAM002I",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/categories",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "categories"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Category",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4IiwiaWF0IjoxNzc2NDgxMDg3LCJleHAiOjE3NzY1Njc0ODd9.Hz3dUUQ1Gh6GEbpYkhcCTz_bqKkMzNtzbXpKzAM002I",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/categories/3?name=Office",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "categories",
+            "3"
+          ],
+          "query": [
+            {
+              "key": "name",
+              "value": "Office"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Catogery",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4IiwiaWF0IjoxNzc2NDgxMDg3LCJleHAiOjE3NzY1Njc0ODd9.Hz3dUUQ1Gh6GEbpYkhcCTz_bqKkMzNtzbXpKzAM002I",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/categories/3",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "categories",
+            "3"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Complete Task (Webhook )",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4IiwiaWF0IjoxNzc2NDgxMDg3LCJleHAiOjE3NzY1Njc0ODd9.Hz3dUUQ1Gh6GEbpYkhcCTz_bqKkMzNtzbXpKzAM002I",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"status\":\"completed\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/tasks/69e2f6e9d849dd4b80206c49",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "tasks",
+            "69e2f6e9d849dd4b80206c49"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
