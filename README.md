@@ -18,12 +18,21 @@ This project demonstrates backend engineering beyond CRUD by combining authentic
 
 PASTE_YOUR_DEMO_VIDEO_LINK_HERE
 
-## 📁 API Collection
+# 📁 API Collection
 
-PASTE_COLLECTION_FILE_LINK_HERE  
-_or mention included in repository root folder_
+The complete API request collection used for testing and demonstration is included in this repository.
 
----
+**Collection File:**  
+`TaskManagementAPI.json`
+
+You can import this file into **Postman** or **Hoppscotch** to test all endpoints including:
+
+- Authentication APIs
+- User Profile API
+- Task CRUD APIs
+- Task Filtering APIs
+- Category Management APIs
+- Reminder & Webhook Demonstration Requests
 
 # ✨ Key Features
 
