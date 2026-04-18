@@ -16,7 +16,7 @@ This project demonstrates backend engineering beyond CRUD by combining authentic
 
 ## 🎥 Demo Video
 
-PASTE_YOUR_DEMO_VIDEO_LINK_HERE
+https://drive.google.com/file/d/1E0KLcp7CPtAVzkpfDGa1M8YnfCAgr9nR/view?usp=sharing
 
 # 📁 API Collection
 
